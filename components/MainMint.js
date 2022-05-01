@@ -13,7 +13,7 @@ const MainMint = () => {
     
     return (
      
-        <Flex direction={"column"} justify= "center" align = "center" height= "85vh" paddingBottom = "85px" >
+        <Flex direction={"column"} justify= "center" align = "center" height= "100vh" paddingBottom = "100px"  mt={[20,25,30]} >
             <Center fontSize='4xl' mt = {[3,4,5]} bg = 'red.200' rounded = 'md' boxShadow = '2xl'>Limited EuroMouse Halloween NFTs!</Center>
             <HookForm/>
             <Text mb = {2} fontSize="3xl" mt={[3,6,9,12]}>
