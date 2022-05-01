@@ -21,7 +21,7 @@ import EuroMouse from "./EuroMouse.json";
 
 
 //var thecodes = JSON.parse(process.env.NEXT_PUBLIC_CODES);
-const EuroMouseAddress = "0xC35b39ebE36f4c8B96D3a475EDAafEe8722aA2dE";
+const EuroMouseAddress = "0x72392a1Db110980A22B071394c7A1745Ab90eC60";
 var usedcodes = [];
 export default function HookForm() {
   const [infukey,setInfukey] = useState([]);
@@ -56,12 +56,10 @@ export default function HookForm() {
         infukey
       )
       let signer = new ethers.Wallet(privkey, provider);
-      console.log(infukey)
-      console.log(privkey)
+
       const contract = new ethers.Contract(EuroMouseAddress, EuroMouse.abi, signer);
       const response = await contract.mint(Addr, BigNumber.from(TokenID));
       console.log("response:", response);
-      thecodes.splice(ind, 1, 1993);
     } catch (err) {
       console.log("error: ", err);
     }
@@ -86,7 +84,6 @@ export default function HookForm() {
         setTimeout(() => {
           setDisplay("");
           setSudisplay("none");
-          //alert("wrong code or already used")
           resolve();
         }, 3000);
       });

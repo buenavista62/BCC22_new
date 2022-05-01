@@ -9,12 +9,12 @@ import {
     Link,
     Badge,
     useColorModeValue,
-    Spacer,Flex,VStack,HStack
+    Spacer,Flex,VStack,HStack, Container
   } from '@chakra-ui/react';
   
   export default function Team() {
     return (
-    <Stack direction={["column", "row"]} spacing = '24px' align = "center" mt = {[3,6,9,12]} mb= {[3,6,9,12]} height= "85vh" paddingBottom = "85px" >
+    <Stack direction={["column", "row"]} spacing = '24px' align = "center" mt = {[3,6,9,12]} mb= {[3,6,9,12]} paddingBottom = "55px" >
         <Box
           w={[300,400,500]}
           
@@ -368,7 +368,8 @@ import {
             </Button>
           </Stack>
         </Box>
-  
+      
       </Stack>
+      
     );
   }

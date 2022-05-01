@@ -9,36 +9,10 @@ import {
   } from '@chakra-ui/react';
 
   
-  const SocialButton = ({
-    children,
-    label,
-    href,
-  }) => {
-    return (
-      <chakra.button
-        bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-        rounded={'full'}
-        w={8}
-        h={8}
-        cursor={'pointer'}
-        as={'a'}
-        href={href}
-        display={'inline-flex'}
-        alignItems={'center'}
-        justifyContent={'center'}
-        transition={'background 0.3s ease'}
-        _hover={{
-          bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-        }}>
-        <VisuallyHidden>{label}</VisuallyHidden>
-        {children}
-      </chakra.button>
-    );
-  };
-  
+
   export default function SmallWithSocial() {
     return (
-      <Box
+      <Box mt={[20,50,80]}
         bg={useColorModeValue('gray.50', 'gray.900')}
         color={useColorModeValue('gray.700', 'gray.200')}>
         <Container
@@ -49,7 +23,7 @@ import {
           spacing={4}
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
-          <Text>© 2022 Chakra Templates. All rights reserved</Text>
+          <Text>© Team 8 - 2022 Blockchain Challenge 2022 - University of Basel</Text>
           
         </Container>
       </Box>

@@ -12,6 +12,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
+
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 
@@ -23,10 +24,10 @@ module.exports = {
   networks: {
     mumbai: {
       url: 'https://polygon-mumbai.infura.io/v3/85bf154b6f6e466fa4f1ecbbe95ca9d3',
-      accounts: [process.env.REACT_APP_PRIVATE_KEY]
+      accounts: [process.env.NEXT_PUBLIC_PRIVATE_KEY]
     },
   },
   etherscan: {
-    apiKey: process.env.REACT_APP_MUMBAI_KEY ,
+    apiKey: process.env.NEXT_PUBLIC_MUMBAI_KEY ,
   },
 };

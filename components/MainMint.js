@@ -13,13 +13,13 @@ const MainMint = () => {
     
     return (
      
-        <Flex direction={"column"} justify= "center" align = "center" height= "100vh" paddingBottom = "100px"  mt={[20,25,30]} >
+        <Flex direction={"column"} justify= "center" align = "center"  paddingBottom = "100px"  mt={[5,10,15]} >
             <Center fontSize='4xl' mt = {[3,4,5]} bg = 'red.200' rounded = 'md' boxShadow = '2xl'>Limited EuroMouse Halloween NFTs!</Center>
             <HookForm/>
             <Text mb = {2} fontSize="3xl" mt={[3,6,9,12]}>
                 Instructions
             </Text>
-            <List spacing={3} id="instructions">
+            <List spacing={3} id="instructions" color="white">
                <ListItem fontSize = "sm"> 
                <ListIcon as={CheckCircleIcon} color='green.500' />Download an Ethereum based Wallet and create an account. We recommend Metamask.</ListItem>
                <ListItem fontSize = "sm"> 
