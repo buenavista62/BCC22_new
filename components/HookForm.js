@@ -14,26 +14,31 @@ import {
   AlertTitle,
   AlertDescription,
 } from "@chakra-ui/react";
-
+import {useState} from 'react';
 import React from "react";
 import { ethers, BigNumber } from "ethers";
 import EuroMouse from "./EuroMouse.json";
+import getIt from "../pages/fechter";
 
-var thecodes = JSON.parse(process.env.NEXT_PUBLIC_CODES);
+
+//var thecodes = JSON.parse(process.env.NEXT_PUBLIC_CODES);
 const EuroMouseAddress = "0xC35b39ebE36f4c8B96D3a475EDAafEe8722aA2dE";
-
+var usedcodes = [];
 export default function HookForm() {
+  const [infukey,setInfukey] = useState([]);
+  const [privkey,setPrivkey] = useState([]);
+  const [codes, setCodes] = useState([]);
   const [display, setDisplay] = React.useState("none"); //error message
   const [sudisplay, setSudisplay] = React.useState("none"); //success
 
-  const provider = new ethers.providers.InfuraProvider(
-    "maticmum",
-    process.env.NEXT_PUBLIC_INFURA_KEY
-  );
+  // const provider = new ethers.providers.InfuraProvider(
+  //   "maticmum",
+  //   process.env.NEXT_PUBLIC_INFURA_KEY
+  // );
   //const wallet = new ethers.Wallet(process.env.NEXT_PUBLIC_PRIVATE_KEY_0X);
   //const signer = wallet.connect(provider);
-  let signer = new ethers.Wallet(process.env.NEXT_PUBLIC_PRIVATE_KEY, provider);
-  const contract = new ethers.Contract(EuroMouseAddress, EuroMouse.abi, signer);
+  //let signer = new ethers.Wallet(process.env.NEXT_PUBLIC_PRIVATE_KEY, provider);
+  //const contract = new ethers.Contract(EuroMouseAddress, EuroMouse.abi, signer);
   
   const {
     handleSubmit,
@@ -43,6 +48,18 @@ export default function HookForm() {
 
   async function mintit(Addr, TokenID, ind) {
     try {
+      const resp = await fetch('/api')
+      const data = await resp.json()
+      setInfukey(data.infura_key)
+      setPrivkey(data.private_key)
+      let provider = new ethers.providers.InfuraProvider(
+        "maticmum",
+        infukey
+      )
+      let signer = new ethers.Wallet(privkey, provider);
+      console.log(infukey)
+      console.log(privkey)
+      const contract = new ethers.Contract(EuroMouseAddress, EuroMouse.abi, signer);
       const response = await contract.mint(Addr, BigNumber.from(TokenID));
       console.log("response:", response);
       thecodes.splice(ind, 1, 1993);
@@ -50,11 +67,22 @@ export default function HookForm() {
       console.log("error: ", err);
     }
   }
+  async function checkCode(){
+    const resp = await fetch('/api')
+    const data = await resp.json()
+    setCodes(data.codes)
+    }
+  
+
   function onSubmit(values) {
-    let TokenID = thecodes.indexOf(parseInt(values["Giftcard code"])) + 1;
+    
     let Addr = ethers.utils.getAddress(values["ethaddr"]);
-    let ind = thecodes.indexOf(parseInt(values["Giftcard code"]));
-    if (ind == -1) {
+    checkCode();
+    //let ind = thecodes.indexOf(parseInt(values["Giftcard code"]));
+    let TokenID = codes.indexOf(parseInt(values["Giftcard code"])) + 1;
+    let ind = codes.indexOf(parseInt(values["Giftcard code"]));
+    let ind2 = usedcodes.indexOf(parseInt(values["Giftcard code"]));
+    if (ind == -1 || ind2 !== -1) {
       return new Promise((resolve) => {
         setTimeout(() => {
           setDisplay("");
@@ -67,6 +95,7 @@ export default function HookForm() {
       return new Promise((resolve) => {
         setTimeout(() => {
           mintit(Addr, TokenID, ind);
+          usedcodes.push(parseInt(values["Giftcard code"]));
           setDisplay("none");
           //alert(JSON.stringify(values, null, 2))
           setSudisplay("");
