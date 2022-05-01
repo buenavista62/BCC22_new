@@ -93,7 +93,6 @@ export default function HookForm() {
           mintit(Addr, TokenID, ind);
           usedcodes.push(parseInt(values["Giftcard code"]));
           setDisplay("none");
-          //alert(JSON.stringify(values, null, 2))
           setSudisplay("");
           resolve();
         }, 3000);
