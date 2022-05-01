@@ -17,3 +17,10 @@ a {
 * {
   box-sizing: border-box;
 }
+
+#form {
+  backdrop-filter: grayscale(0.5) opacity(0.8)  /* ...and on and on... */;
+}
+#instructions {
+  backdrop-filter: grayscale(0.5) opacity(0.8)
+}

@@ -18,7 +18,6 @@ import {useState} from 'react';
 import React from "react";
 import { ethers, BigNumber } from "ethers";
 import EuroMouse from "./EuroMouse.json";
-import getIt from "../pages/fechter";
 
 
 //var thecodes = JSON.parse(process.env.NEXT_PUBLIC_CODES);
@@ -131,13 +130,14 @@ export default function HookForm() {
           </AlertTitle>
           <AlertDescription maxWidth="sm"> The NFT has been minted</AlertDescription>
         </Alert>
-        <Flex
+        <Flex id="form"
           direction="column"
           alignItems="center"
           justifyContent="space-between"
           mt={[2, 3, 4, 5]}
           p={[2, 3, 4, 5]}
-          fontSize={["sm", "md", "lg", "xl"]}
+          fontSize={["sm", "md", "lg", "xl"]
+        }
         >
           <FormControl isInvalid={errors.name}>
             <Box
