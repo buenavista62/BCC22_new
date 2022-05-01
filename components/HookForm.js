@@ -162,7 +162,7 @@ export default function HookForm() {
             <Spacer />
             <Input
               id="ethaddr"
-              placeholder="0x..."
+              placeholder="Wallet address (0x...)"
               _placeholder={{ color: 'black' }}
               {...register("ethaddr", {
                 required: "required",
