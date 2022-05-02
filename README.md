@@ -16,6 +16,7 @@ The smart contract is stored on the Polygon chain to reduce gas fees.
 - [Introduction](#introduction)
 - [NFT creation](#nft-creation)
   - [Pictures & Metadata](#pictures--metadata)
+- [Smart Contract](#smart-contract)
 
 # Introduction
 
@@ -134,3 +135,14 @@ Json example
   "compiler": "HashLips Art Engine"
 }
 ```
+
+After that the JSON-metadata was uploaded to IPFS as well.  
+***  
+
+| **Datatype** | **CID**                                        |
+|--------------|------------------------------------------------|
+| Pictures     | QmekegUZUEtR2oHhSBctX5EuTSY87d54TAdsnWfn4SYS4J |
+| Metadata     | QmVDk6AH85uETgjip2tH4kCko76u2sHGhwGpbof8eWGgtg |
+***  
+
+# Smart Contract
