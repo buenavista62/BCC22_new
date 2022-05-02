@@ -15,7 +15,7 @@ The smart contract is stored on the Polygon chain to reduce gas fees.
 
 - [Introduction](#introduction)
 - [NFT creation](#nft-creation)
-  - [Pictures](#pictures)
+  - [Pictures & Metadata](#pictures--metadata)
 
 # Introduction
 
@@ -34,7 +34,7 @@ The following software, frameworks and programming languages are used:
 
 # NFT creation
 
-## Pictures
+## Pictures & Metadata
 
 In order to create an entire NFT collection, the best approach is to create layers and then combine them to an entire picture. We created the following layers:
 
@@ -66,4 +66,8 @@ In order to create an entire NFT collection, the best approach is to create laye
 
 Additionally we created 3 *winner NFTs*, which have special background and a winning ticket as the *hand* attribute.
 
-![<img src= "public/99.png" width="100px"/>](public/99.png)
+| <img src= "public/99.png" width="250px"/> |
+|:--:|
+| *A Winner NFT* |
+
+Picture creating and metadata generation were made via [*HashLips Art Engine*](https://github.com/HashLips/hashlips_art_engine). Hashlips is a JavaScript based program, which combines image layers to uniquely generated pictures.
