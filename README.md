@@ -101,7 +101,7 @@ const format = {
  After that, the pictures were uploaded to *IPFS* via [*Pinata*](https://pinata.cloud). Once the pictures were uploaded, we used the content identifier *CID* of the picture folder and pasted it in the JSON-metadata of each NFT.
 
 ```json
-Json example
+"Json metadata example"
 {
   "name": "Euro Mouse Halloween Special #1",
   "description": "Limited NFT collection, only gift card holders are eligible",
@@ -137,8 +137,7 @@ Json example
 ```
 
 After that the JSON-metadata was uploaded to IPFS as well.  
-___
-
+___  
 
 | **Datatype**   | **CID**                                          |
 | -------------- |:------------------------------------------------:|
