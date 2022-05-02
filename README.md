@@ -142,7 +142,7 @@ ___
 | **Datatype**   | **CID**                                          |
 | -------------- |:------------------------------------------------:|
 | Pictures       | QmekegUZUEtR2oHhSBctX5EuTSY87d54TAdsnWfn4SYS4J   |
-| Metadata       | QmVDk6AH85uETgjip2tH4kCko76u2sHGhwGpbof8eWGgtg   |
+| Metadata       | QmVDk6AH85uETgjip2tH4kCko76u2sHGhwGpbof8eWGgtg   |  
 ___
 # Smart Contract
 
