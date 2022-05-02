@@ -1,7 +1,7 @@
 <!-- omit in toc -->
 # Blockchain Challenge 2022 - Technical Documentation
 <!-- omit in toc -->
-## Team 8 
+## Team 8
 <!-- omit in toc -->
 ### Short description
 
@@ -12,6 +12,7 @@ The fees are paid by the contract owner.
 The smart contract is stored on the Polygon chain to reduce gas fees.
 <!-- omit in toc -->
 # Table of Contents
+
 - [Introduction](#introduction)
 - [NFT creation](#nft-creation)
   - [Pictures](#pictures)
@@ -37,4 +38,32 @@ The following software, frameworks and programming languages are used:
 
 In order to create an entire NFT collection, the best approach is to create layers and then combine them to an entire picture. We created the following layers:
 
+- Background
+  - aquamarine
+  - blue
+  - darkblue
+  - green
+  - orange
+  - purple
+  - red
+  - violet
+  - yellow
+- Base
+  - normal
+  - Frankenstein
+- Body
+  - black
+  - Dracula
+  - EuropaPark
+  - Skeleton
+- Hand
+  - Bone
+  - Broom
+  - Pumpkin
+- Head
+  - Spider
+  - Witch hat
 
+Additionally we created 3 *winner NFTs*, which have special background and a winning ticket as the *hand* attribute.
+
+![<img src= "public/99.png" width="100px"/>](public/99.png)
