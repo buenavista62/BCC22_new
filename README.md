@@ -139,10 +139,11 @@ Json example
 After that the JSON-metadata was uploaded to IPFS as well.  
 ***  
 
-| **Datatype** | **CID**                                        |
-|--------------|------------------------------------------------|
-| Pictures     | QmekegUZUEtR2oHhSBctX5EuTSY87d54TAdsnWfn4SYS4J |
-| Metadata     | QmVDk6AH85uETgjip2tH4kCko76u2sHGhwGpbof8eWGgtg |
+| **Datatype**   | **CID**                                          |
+| -------------- |:------------------------------------------------:|
+| Pictures       | QmekegUZUEtR2oHhSBctX5EuTSY87d54TAdsnWfn4SYS4J   |
+| Metadata       | QmVDk6AH85uETgjip2tH4kCko76u2sHGhwGpbof8eWGgtg   |
+
 ***  
 
 # Smart Contract
