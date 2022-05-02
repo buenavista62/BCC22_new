@@ -137,15 +137,13 @@ Json example
 ```
 
 After that the JSON-metadata was uploaded to IPFS as well.  
-***  
+___
 
 | **Datatype**   | **CID**                                          |
 | -------------- |:------------------------------------------------:|
 | Pictures       | QmekegUZUEtR2oHhSBctX5EuTSY87d54TAdsnWfn4SYS4J   |
 | Metadata       | QmVDk6AH85uETgjip2tH4kCko76u2sHGhwGpbof8eWGgtg   |
-
-***  
-
+___
 # Smart Contract
 
 The smart contract is a inherits the ERC721 contract standard from openzeppelin. When constructing the contract, the *base URI* of the tokens are set. The maximum supply is set at 101 - the entirety of the NFT collection. It can be adjusted afterwards if needed. After that, the minting process has to enabled manually by the contract owner. This is useful, since we may want to enable minting only during a certain time.
