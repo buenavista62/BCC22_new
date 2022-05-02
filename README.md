@@ -70,4 +70,67 @@ Additionally we created 3 *winner NFTs*, which have special background and a win
 |:--:|
 | *A Winner NFT* |
 
-Picture creating and metadata generation were made via [*HashLips Art Engine*](https://github.com/HashLips/hashlips_art_engine). Hashlips is a JavaScript based program, which combines image layers to uniquely generated pictures.
+Picture creating and metadata generation were made via [*HashLips Art Engine*](https://github.com/HashLips/hashlips_art_engine). Hashlips is a JavaScript based program, which combines image layers to generate unique pictures. We configured the NFT creating as the following:
+
+```javascript
+// Some of the hashlips configurations. For more info, visit github
+
+const namePrefix = "Euro Mouse Halloween Special";
+const description = "Limited NFT collection, only gift card holders are eligible";
+const layerConfigurations = [
+  {
+    growEditionSizeTo: 98,
+    layersOrder: [
+      { name: "Background"},
+      { name: "Base" },
+      { name: "Body" },
+      { name: "Hand" },
+      { name: "Head" },
+    ],
+  },
+];
+const shuffleLayerConfigurations = false;
+const format = {
+  width: 3000,
+  height: 3000,
+  smoothing: false,
+};
+```
+
+ After that, the pictures were uploaded to *IPFS* via [*Pinata*](https://pinata.cloud). Once the pictures were uploaded, we used the content identifier *CID* of the picture folder and pasted it in the JSON-metadata of each NFT.
+
+```json
+Json example
+{
+  "name": "Euro Mouse Halloween Special #1",
+  "description": "Limited NFT collection, only gift card holders are eligible",
+  "image": "https://ipfs.io/ipfs/QmekegUZUEtR2oHhSBctX5EuTSY87d54TAdsnWfn4SYS4J/1.png",
+  "dna": "70867f47a5e343864d0b308a123e419bdaebf39d",
+  "edition": 1,
+  "date": 1651416943881,
+  "creator": "BCC22 - Team 8",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "blue"
+    },
+    {
+      "trait_type": "Base",
+      "value": "normal"
+    },
+    {
+      "trait_type": "Body",
+      "value": "EuropaPark"
+    },
+    {
+      "trait_type": "Hand",
+      "value": "Bone"
+    },
+    {
+      "trait_type": "Head",
+      "value": "Spider"
+    }
+  ],
+  "compiler": "HashLips Art Engine"
+}
+```
