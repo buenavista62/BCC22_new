@@ -28,12 +28,13 @@ The following chapters will explain various processes such as creating and uploa
 The following software, frameworks and programming languages are used:
 
 - Visual Studio Code (IDE)
-- JavaScript
+- JavaScript (Programming language)
 - Node.js (Website development)
 - Solidity (Smart Contract development)
 - Next.js (Website development)
-- Hardhat (Smart Contract compilation, deployment and verification)
-- Infura (Ethereum API)
+- [Hardhat](https://hardhat.org/) (Smart Contract compilation, deployment and verification)
+- [Infura](https://infura.io/) (Ethereum API)
+- [Vercel](https://vercel.com/) (Website deployment)
 
 # NFT creation
 
