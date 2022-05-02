@@ -17,6 +17,7 @@ The smart contract is stored on the Polygon chain to reduce gas fees.
 - [NFT creation](#nft-creation)
   - [Pictures & Metadata](#pictures--metadata)
 - [Smart Contract](#smart-contract)
+- [Website](#website)
 
 # Introduction
 
@@ -29,9 +30,10 @@ The following software, frameworks and programming languages are used:
 - Visual Studio Code (IDE)
 - JavaScript
 - Node.js (Website development)
-- Solididty (Smart Contract development)
+- Solidity (Smart Contract development)
 - Next.js (Website development)
 - Hardhat (Smart Contract compilation, deployment and verification)
+- Infura (Ethereum API)
 
 # NFT creation
 
@@ -162,6 +164,12 @@ function mint(address _receiver, uint256 tID) public onlyOwner {
         _safeMint(_receiver, tID);
     }
 ```
-The contract was compiled, deployed and verified using [*hardhat*](https://hardhat.org/). 
+The contract was compiled, deployed and verified using [*hardhat*](https://hardhat.org/) on the Polygon Mumbai Testnet. Infura was used as the an API provider to connect to the Polygon Mumbai Testnet.
+
+**Contract Address:**  0xAFB3e72bEf11C13C572fD8112bAE95c983a5DDe3  
+
+**Verified code:** https://mumbai.polygonscan.com/address/0xAFB3e72bEf11C13C572fD8112bAE95c983a5DDe3#code  
+
+# Website
 
 

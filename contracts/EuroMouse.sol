@@ -15,7 +15,10 @@ contract EuroMouse is ERC721, Ownable {
     string private baseTokenURI;
 
     constructor(string memory baseURI)
-        ERC721("BCC EuroMouse - Halloween Edition", "EUMOUSE")
+        ERC721(
+            "Blockchain Challenge 2022 EuroMouse - Halloween Edition",
+            "EUMOUSE"
+        )
     {
         setBaseURI(baseURI);
     }

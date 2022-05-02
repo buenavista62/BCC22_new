@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\serca\\OneDrive\\Desktop\\website\\full-mint-website\\BCC22\\contracts\\EuroMouse.sol": {
-      "lastModificationDate": 1651528359556,
-      "contentHash": "5c254acc79b10ecb4084cc8ca74d3dae",
+      "lastModificationDate": 1651532125542,
+      "contentHash": "8ba8234ba6c653091f896113ab9fe077",
       "sourceName": "contracts/EuroMouse.sol",
       "solcConfig": {
         "version": "0.8.4",
