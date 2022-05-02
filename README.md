@@ -15,6 +15,7 @@ The smart contract is stored on the Polygon chain to reduce gas fees.
 - [Introduction](#introduction)
 - [NFT creation](#nft-creation)
   - [Pictures](#pictures)
+
 # Introduction
 
 This documentation describes the technical implementation of the business extension for the case of *Blackhawk Network*. The basic idea of this implementation is to gift NFTs to eligible gift card holders. Moreover, the website and the smart contract are functioning in such a way that the gift card holder does not pay any minting or transaction fees.
@@ -34,5 +35,6 @@ The following software, frameworks and programming languages are used:
 
 ## Pictures
 
+In order to create an entire NFT collection, the best approach is to create layers and then combine them to an entire picture. We created the following layers:
 
 
