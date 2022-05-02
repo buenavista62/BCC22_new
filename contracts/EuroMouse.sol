@@ -8,7 +8,6 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract EuroMouse is ERC721, Ownable {
-    using Counters for Counters.Counter;
     using SafeMath for uint256;
     uint256 public tokenId;
     uint256 public maxSupply = 101;
@@ -40,6 +39,6 @@ contract EuroMouse is ERC721, Ownable {
     function mint(address _receiver, uint256 tID) public onlyOwner {
         require(isMintEnabled, "minting not enabled");
         require(tokenId <= maxSupply, "out of range");
-        _mint(_receiver, tID);
+        _safeMint(_receiver, tID);
     }
 }
