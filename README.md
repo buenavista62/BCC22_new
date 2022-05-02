@@ -139,17 +139,19 @@ Json example
 After that the JSON-metadata was uploaded to IPFS as well.  
 ___
 
+
 | **Datatype**   | **CID**                                          |
 | -------------- |:------------------------------------------------:|
 | Pictures       | QmekegUZUEtR2oHhSBctX5EuTSY87d54TAdsnWfn4SYS4J   |
 | Metadata       | QmVDk6AH85uETgjip2tH4kCko76u2sHGhwGpbof8eWGgtg   |  
+
 ___
 # Smart Contract
 
-The smart contract is a inherits the ERC721 contract standard from openzeppelin. When constructing the contract, the *base URI* of the tokens are set. The maximum supply is set at 101 - the entirety of the NFT collection. It can be adjusted afterwards if needed. After that, the minting process has to enabled manually by the contract owner. This is useful, since we may want to enable minting only during a certain time.
+The smart contract inherits the ERC721 contract standard from openzeppelin. When constructing the contract, the *base URI* of the tokens are set. The maximum supply is set at 101 - the entirety of the NFT collection. It can be adjusted afterwards if needed. After that, the minting process has to enabled manually by the contract owner. This is useful, since we may want to enable minting only during a certain time.
 ```solidity
 function toggleIsMintEnabled() external onlyOwner {
-        isMintEnabled = !isMintEnabled;
+        isMintEnabled = !isMintEnabled; // default is false
     }
 ```
 The mint function can be executed only by the owner of the contract. It receives two inputs - the receiver of the token and the token id. Thus, the contract owner pays minting fees. The receiver gets the token via *airdrop*.
@@ -158,7 +160,7 @@ The mint function can be executed only by the owner of the contract. It receives
 function mint(address _receiver, uint256 tID) public onlyOwner {
         require(isMintEnabled, "minting not enabled");
         require(tokenId <= maxSupply, "out of range");
-        _mint(_receiver, tID);
+        _safeMint(_receiver, tID);
     }
 ```
 The contract was compiled, deployed and verified using [*hardhat*](https://hardhat.org/). 
