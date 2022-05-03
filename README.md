@@ -48,7 +48,7 @@ In order to create an entire NFT collection, the best approach is to create laye
 |Base|<li>normal<li>Frankenstein|
 |Body|<li>black<li>Dracula<li>Europa Park<li>Skeleton|
 |Hand|<li>Bone<li>Broom<li>Pumpkin|
-|Head|<li>Spider<li>Witch Hat|
+|Head|<li>Spider<li>Witch Hat</li>|
 
 Additionally we created 3 *winner NFTs*, which have special background and a winning ticket as the *hand* attribute.
 
@@ -130,14 +130,17 @@ ___
 | Metadata       | QmVDk6AH85uETgjip2tH4kCko76u2sHGhwGpbof8eWGgtg   |  
 
 ___
+
 # Smart Contract
 
 The smart contract inherits the ERC721 contract standard from openzeppelin. When constructing the contract, the *base URI* of the tokens are set. The maximum supply is set at 101 - the entirety of the NFT collection. It can be adjusted afterwards if needed. After that, the minting process has to enabled manually by the contract owner. This is useful, since we may want to enable minting only during a certain time.
+
 ```solidity
 function toggleIsMintEnabled() external onlyOwner {
         isMintEnabled = !isMintEnabled; // default is false
     }
 ```
+
 The mint function can be executed only by the owner of the contract. It receives two inputs - the receiver of the token and the token id. Thus, the contract owner pays minting fees. The receiver gets the token via *airdrop*.
 
 ```solidity
@@ -151,7 +154,7 @@ The contract was compiled, deployed and verified using [*hardhat*](https://hardh
 
 **Contract Address:**  0xAFB3e72bEf11C13C572fD8112bAE95c983a5DDe3  
 
-**Verified code:** https://mumbai.polygonscan.com/address/0xAFB3e72bEf11C13C572fD8112bAE95c983a5DDe3#code  
+**Verified code:** <https://mumbai.polygonscan.com/address/0xAFB3e72bEf11C13C572fD8112bAE95c983a5DDe3#code>  
 
 # Website
 
