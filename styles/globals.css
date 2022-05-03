@@ -5,6 +5,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #FBD38D !important;
   overflow: auto;
+  backdrop-filter: blur(10px) !important;
 }
 
 a {
