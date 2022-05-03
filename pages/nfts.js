@@ -4,6 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 export default function Nfts() {
     return (
+      <div>
       <Carousel className = "carousel" autoPlay = "true" dynamicHeight = "true" width = "100%" infiniteLoop = "true" transitionTime = "1500" showStatus = "false">
                   <div>
                       <img src="/nft/1.png" alt="image1" width="300"/>
@@ -106,6 +107,7 @@ export default function Nfts() {
   
                   </div>
               </Carousel>
+              </div>
     )
   }
   
