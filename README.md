@@ -175,3 +175,11 @@ The home page provides the main functionality for the user. It consists of a sub
 | <img src= "public/submitform.png" width="250px"/> |
 |:--:|
 | *Submit form* |
+
+The submit form accepts only 6-digit-codes and 40-digit addresses. An error message appears if the giftcard code is wrong or already used. If both code and wallet address are valid, a success message will appear.
+
+| <img src= "public/error.png" width="250px"/> |<img src= "public/success.png" width="250px"/>
+|:--:|:--:|
+| *Error message* | *Success message*|
+
+
