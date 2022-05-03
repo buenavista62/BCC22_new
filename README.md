@@ -18,6 +18,8 @@ The smart contract is stored on the Polygon chain to reduce gas fees.
   - [Pictures & Metadata](#pictures--metadata)
 - [Smart Contract](#smart-contract)
 - [Website](#website)
+  - [General](#general)
+  - [Home Page](#home-page)
 
 # Introduction
 
@@ -158,8 +160,18 @@ The contract was compiled, deployed and verified using [*hardhat*](https://hardh
 
 **Verified code:** <https://mumbai.polygonscan.com/address/0xAFB3e72bEf11C13C572fD8112bAE95c983a5DDe3#code>  
 
-The full code can also be found in the contracts folder
+The full code can also be found in the [contracts](contracts/EuroMouse.sol) folder.
 
 # Website
 
-We used *next.js* as the technical frame to build the website. There are 2 pages, *home page* and *team*.
+## General
+
+We used *next.js* as the technical frame to build the website. There are 2 pages, *home page* and *team*. All keys have been stored as *environment variables* and will be accessed from the frontend via 'process.env'. This setup is not suitable for a mainnet solution, since the keys are exposed on the frontend.
+
+## Home Page
+
+The home page provides the main functionality for the user. It consists of a submit form and a text block with instructions. The user can visit the website by scanning the *QR-code* on his giftcard. Afterwards, the user can type in his/her giftcard code and wallet address and click on submit.
+
+| <img src= "public/submitform.png" width="250px"/> |
+|:--:|
+| *Submit form* |
