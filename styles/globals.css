@@ -1,7 +1,6 @@
 html,
 body {
   padding: 0;
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #FBD38D !important;
@@ -25,4 +24,5 @@ a {
 
 #instructions {
   color: black;
+  margin: 0px 15px 0px 15px;
 }
