@@ -32,6 +32,7 @@ The following software, frameworks and programming languages are used:
 - Node.js (Website development)
 - Solidity (Smart Contract development)
 - Next.js (Website development)
+- Ethers.js (Web3 package for JS)
 - [Hardhat](https://hardhat.org/) (Smart Contract compilation, deployment and verification)
 - [Infura](https://infura.io/) (Ethereum API)
 - [Vercel](https://vercel.com/) (Website deployment)
@@ -44,11 +45,11 @@ In order to create an entire NFT collection, the best approach is to create laye
 
 |Layers|Attributes|
 |---|---|
-|Background| <div><li> aquamarine</li><li> darkblue</li><li> green</li><li> orange</li><li> purple</li><li>red</li><li>yellow</li><li>violet</li></div>|
-|Base|<li>normal<li>Frankenstein|
-|Body|<li>black<li>Dracula<li>Europa Park<li>Skeleton|
-|Hand|<li>Bone<li>Broom<li>Pumpkin|
-|Head|<li>Spider<li>Witch Hat</li>|
+|Background|  aquamarine, darkblue, green, orange, purple, red, yellow, violet|
+|Base|normal, Frankenstein|
+|Body|black, Dracula, Europa Park, Skeleton|
+|Hand|Bone, Broom, Pumpkin|
+|Head|Spider, Witch Hat
 
 Additionally we created 3 *winner NFTs*, which have special background and a winning ticket as the *hand* attribute.
 
@@ -150,12 +151,15 @@ function mint(address _receiver, uint256 tID) public onlyOwner {
         _safeMint(_receiver, tID);
     }
 ```
+
 The contract was compiled, deployed and verified using [*hardhat*](https://hardhat.org/) on the Polygon Mumbai Testnet. Infura was used as the an API provider to connect to the Polygon Mumbai Testnet.
 
 **Contract Address:**  0xAFB3e72bEf11C13C572fD8112bAE95c983a5DDe3  
 
 **Verified code:** <https://mumbai.polygonscan.com/address/0xAFB3e72bEf11C13C572fD8112bAE95c983a5DDe3#code>  
 
+The full code can also be found in the contracts folder
+
 # Website
 
-
+We used *next.js* as the technical frame to build the website. There are 2 pages, *home page* and *team*.
