@@ -182,4 +182,14 @@ The submit form accepts only 6-digit-codes and 40-digit addresses. An error mess
 |:--:|:--:|
 | *Error message* | *Success message*|
 
+All eligible codes are stored as environment variables. The codes are random 6 digit integers.
 
+```python
+# generating giftcard codes
+import random as rd
+arr = []
+for i in range(101):
+    arr.append(rd.randint(100000,999999)) # 101 random codes
+
+len(arr) == len(set(arr)) # check whether the codes are unique
+```
