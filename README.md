@@ -136,7 +136,15 @@ ___
 
 # Smart Contract
 
-The smart contract inherits the ERC721 contract standard from openzeppelin. When constructing the contract, the *base URI* of the tokens are set. The maximum supply is set at 101 - the entirety of the NFT collection. It can be adjusted afterwards if needed. After that, the minting process has to enabled manually by the contract owner. This is useful, since we may want to enable minting only during a certain time.
+The smart contract inherits the ERC721 contract standard from openzeppelin. When constructing the contract, the *base URI* of the tokens are set. The maximum supply is set at 101 - the entirety of the NFT collection. It can be adjusted afterwards if needed.  
+
+```solidity
+function setMaxSupply(uint256 maxSupply_) external onlyOwner {
+        maxSupply = maxSupply_;
+    }
+```
+
+After that, the minting process has to enabled manually by the contract owner. This is useful, since we may want to enable minting only during a certain time.
 
 ```solidity
 function toggleIsMintEnabled() external onlyOwner {
@@ -185,7 +193,7 @@ The submit form accepts only 6-digit-codes and 40-digit addresses. An error mess
 All eligible codes are stored as environment variables. The codes are random 6 digit integers.
 
 ```python
-# generating giftcard codes
+# generating giftcard codes (python)
 import random as rd
 arr = []
 for i in range(101):
@@ -193,3 +201,47 @@ for i in range(101):
 
 len(arr) == len(set(arr)) # check whether the codes are unique
 ```
+
+After minting, the used gift card code will be stored on another array, which contains all used gift card codes.
+
+```javascript
+var codes = JSON.parse(process.env.NEXT_PUBLIC_CODES); // valid codes
+var usedcodes = []; // storing used codes
+
+async function mintit(Addr, TokenID) { // mint function
+    try {
+      const response = await contract.mint(Addr, BigNumber.from(TokenID));
+      console.log("response:", response);
+    } catch (err) {
+      console.log("error: ", err);
+    }
+  }
+
+function onSubmit(values) {
+    let Addr = ethers.utils.getAddress(values["ethaddr"]); // receiver address
+    let ind = codes.indexOf(parseInt(values["Giftcard code"])); // returns -1 if the code is not valid
+    let TokenID = codes.indexOf(parseInt(values["Giftcard code"])) + 1; // token id, which is the same as the index of the code in the array
+    let ind2 = usedcodes.indexOf(parseInt(values["Giftcard code"])); // returns -1 if the code is not used
+    if (ind == -1 || ind2 !== -1) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          setDisplay("");
+          setSudisplay("none");
+          resolve();
+        }, 3000);
+      });
+    } else {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          mintit(Addr, TokenID); // execute mint function
+          usedcodes.push(parseInt(values["Giftcard code"])); // add the used code to the 'used codes' array
+          setDisplay("none");
+          setSudisplay("");
+          resolve();
+        }, 3000);
+      });
+    }
+  }
+```
+
+
