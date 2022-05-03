@@ -42,31 +42,13 @@ The following software, frameworks and programming languages are used:
 
 In order to create an entire NFT collection, the best approach is to create layers and then combine them to an entire picture. We created the following layers:
 
-- Background
-  - aquamarine
-  - blue
-  - darkblue
-  - green
-  - orange
-  - purple
-  - red
-  - violet
-  - yellow
-- Base
-  - normal
-  - Frankenstein
-- Body
-  - black
-  - Dracula
-  - EuropaPark
-  - Skeleton
-- Hand
-  - Bone
-  - Broom
-  - Pumpkin
-- Head
-  - Spider
-  - Witch hat
+|Layers|Attributes|
+|---|---|
+|Background| <div><li> aquamarine</li><li> darkblue</li><li> green</li><li> orange</li><li> purple</li><li>red</li><li>yellow</li><li>violet</li></div>|
+|Base|<li>normal<li>Frankenstein|
+|Body|<li>black<li>Dracula<li>Europa Park<li>Skeleton|
+|Hand|<li>Bone<li>Broom<li>Pumpkin|
+|Head|<li>Spider<li>Witch Hat|
 
 Additionally we created 3 *winner NFTs*, which have special background and a winning ticket as the *hand* attribute.
 
