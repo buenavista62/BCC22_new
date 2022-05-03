@@ -12,6 +12,9 @@ const theme = extendTheme({
     lg: '62em',
     xl: '80em',
     '2xl': '96em',
+  },
+  backgroundColor: {
+    orange: '#FEEBC8'
   }
 })
 

@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
+  background-color: #FBD38D !important;
   overflow: auto;
 }
 
@@ -18,11 +18,11 @@ a {
 }
 
 #form {
-  backdrop-filter: grayscale(0.5) opacity(0.8)
+  backdrop-filter: grayscale(0.3) opacity(0.8)
     /* ...and on and on... */
   ;
 }
 
 #instructions {
-  background-color: black
+  color: black;
 }
