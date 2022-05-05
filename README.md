@@ -162,6 +162,23 @@ function mint(address _receiver, uint256 tID) public onlyOwner {
     }
 ```
 
+The baseURI can either be set as a constructor variable when deploying the contract, or it can be set/changed later using the 'setBaseURI' function.
+
+```solidity
+constructor(string memory baseURI) ERC721('BCC EuroMouse - Halloween Edition', 'EUMOUSE') {   
+        setBaseURI(baseURI);     // can set baseURI when deploying the contract
+    }
+
+    function _baseURI() internal view virtual override returns (string memory) {
+     return baseTokenURI; // returns the baseTokenURI.
+    }
+
+    function setBaseURI(string memory _baseTokenURI) public onlyOwner {
+     baseTokenURI = _baseTokenURI; // can set a (new) baseTokenURI
+     
+    }  
+```
+
 The contract was compiled, deployed and verified using [*hardhat*](https://hardhat.org/) on the Polygon Mumbai Testnet. Infura was used as the an API provider to connect to the Polygon Mumbai Testnet.
 
 **Contract Address:**  0xAFB3e72bEf11C13C572fD8112bAE95c983a5DDe3  
@@ -174,7 +191,7 @@ The full code can also be found in the [contracts](contracts/EuroMouse.sol) fold
 
 ## General
 
-We used *next.js* as the technical frame to build the website. There are 2 pages, *home page* and *team*. All keys have been stored as *environment variables* and will be accessed from the frontend via 'process.env'. This setup is not suitable for a mainnet solution, since the keys are exposed on the frontend.
+We used *next.js* as the technical frame to build the website. There are 3 pages, *home page*, *team* and *NFTs*. All keys have been stored as *environment variables* and will be accessed from the frontend via 'process.env'. This setup is not suitable for a mainnet solution, since the keys are exposed on the frontend.
 
 ## Home Page
 
@@ -202,7 +219,7 @@ for i in range(101):
 len(arr) == len(set(arr)) # check whether the codes are unique
 ```
 
-After minting, the used gift card code will be stored on another array, which contains all used gift card codes.
+After minting, the used gift card code will be stored in another array, which contains all used gift card codes.
 
 ```javascript
 var codes = JSON.parse(process.env.NEXT_PUBLIC_CODES); // valid codes

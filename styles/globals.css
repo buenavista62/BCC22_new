@@ -27,6 +27,15 @@ a {
   margin: 0px 15px 0px 15px;
 }
 
-.carousel {
-  margin: 0 auto !important;
+
+.carousel .thumb img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.carousel .slide img {
+  max-height: 750px;
+  max-width: 750px;
+  /* change this to whatever you want */
+  width: auto;
 }
