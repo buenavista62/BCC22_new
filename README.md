@@ -2,12 +2,13 @@
 # Blockchain Challenge 2022 - Technical Documentation
 <!-- omit in toc -->
 ## Team 8
+
+### Sandra Baader, Lukas Bütikofer, Sercan Ates, Leonardo Norambuena
+
 <!-- omit in toc -->
 ### Short description
 
-This is a website with *Web3* functionality to mint NFTs.
-Eligible users who received a giftcard, can mint an NFT using the giftcard code.
-The fees are paid by the contract owner. The smart contract is stored on the Polygon chain to reduce gas fees.
+This is a website with *Web3* functionality to mint NFTs. Eligible users who received a giftcard, can mint an NFT using the giftcard code. The fees are paid by the contract owner. The smart contract is stored on the Polygon chain to reduce gas fees.
 
 All codes are stored on the github repository of this page.
 <!-- omit in toc -->
@@ -20,6 +21,9 @@ All codes are stored on the github repository of this page.
 - [Website](#website)
   - [General](#general)
   - [Home Page](#home-page)
+  - [Team page](#team-page)
+  - [NFTs](#nfts)
+- [Summary](#summary)
 
 # Introduction
 
@@ -59,7 +63,7 @@ Additionally we created 3 *winner NFTs*, which have special background and a win
 |:--:|
 | *A Winner NFT* |
 
-Picture creating and metadata generation were made via [*HashLips Art Engine*](https://github.com/HashLips/hashlips_art_engine). Hashlips is a JavaScript based program, which combines image layers to generate unique pictures. We configured the NFT creating as the following:
+Picture creating and metadata generation were made via [*HashLips Art Engine*](https://github.com/HashLips/hashlips_art_engine). Hashlips is a JavaScript based program, which combines image layers to generate unique pictures. We configured the NFT-creating as the following:
 
 ```javascript
 // Some of the hashlips configurations. For more info, visit github
@@ -68,7 +72,7 @@ const namePrefix = "Euro Mouse Halloween Special";
 const description = "Limited NFT collection, only gift card holders are eligible";
 const layerConfigurations = [
   {
-    growEditionSizeTo: 98,
+    growEditionSizeTo: 98, // will be 101 with the 3 winner NFTs
     layersOrder: [
       { name: "Background"},
       { name: "Base" },
@@ -86,7 +90,7 @@ const format = {
 };
 ```
 
- After that, the pictures were uploaded to *IPFS* via [*Pinata*](https://pinata.cloud). Once the pictures were uploaded, we used the content identifier *CID* of the picture folder and pasted it in the JSON-metadata of each NFT.
+ After that, the pictures were uploaded to *IPFS* via [*Pinata*](https://pinata.cloud). Pinata is a free service for uploading NFTs to the IPFS. Once the pictures were uploaded, we used the content identifier *CID* of the picture folder and pasted it in the JSON-metadata of each NFT. A content identifier serves as a label to point to files in the IPFS.
 
 ```json
 "Json metadata example"
@@ -136,7 +140,7 @@ ___
 
 # Smart Contract
 
-The smart contract inherits the ERC721 contract standard from openzeppelin. When constructing the contract, the *base URI* of the tokens are set. The maximum supply is set at 101 - the entirety of the NFT collection. It can be adjusted afterwards if needed.  
+The smart contract inherits the ERC721 contract standard from [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC721). The maximum supply is set at 101 - the entirety of the NFT collection. It can be adjusted afterwards if needed.  
 
 ```solidity
 function setMaxSupply(uint256 maxSupply_) external onlyOwner {
@@ -219,7 +223,7 @@ for i in range(101):
 len(arr) == len(set(arr)) # check whether the codes are unique
 ```
 
-After minting, the used gift card code will be stored in another array, which contains all used gift card codes.
+After minting, the used gift card code will be stored in another array, which contains all used gift card codes. The index of a given gift card code determines the token ID when minting an NFT.
 
 ```javascript
 var codes = JSON.parse(process.env.NEXT_PUBLIC_CODES); // valid codes
@@ -242,8 +246,8 @@ function onSubmit(values) {
     if (ind == -1 || ind2 !== -1) {
       return new Promise((resolve) => {
         setTimeout(() => {
-          setDisplay("");
-          setSudisplay("none");
+          setDisplay(""); // enable error message
+          setSudisplay("none"); // disable success message
           resolve();
         }, 3000);
       });
@@ -252,8 +256,8 @@ function onSubmit(values) {
         setTimeout(() => {
           mintit(Addr, TokenID); // execute mint function
           usedcodes.push(parseInt(values["Giftcard code"])); // add the used code to the 'used codes' array
-          setDisplay("none");
-          setSudisplay("");
+          setDisplay("none"); // disable error message
+          setSudisplay(""); // enable success message
           resolve();
         }, 3000);
       });
@@ -261,4 +265,14 @@ function onSubmit(values) {
   }
 ```
 
+## Team page
 
+The [team page](https://bcc-giftcards.vercel.app/team) contains some further information about the us as a team.
+
+## NFTs
+
+The [NFTs page](https://bcc-giftcards.vercel.app/nfts) is an image gallery, which shows 20 NFTs from the collection. 
+
+# Summary
+
+The creation of a smart contract to mint NFTs is rather simple. There are many examples and well-tested contracts from openzeppelin, which ensure secure contracts. However, all the additional work regarding the artwork, picutre and metadata generation and having a functional website are very time-consuming. Understanding smart contracts and knowing Solidity was not enough. Web development skills were also needed. This technical implementation can also be used for mainnet solutions, given that all secret keys (API, private key) are not exposed to the frontend.
