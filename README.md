@@ -8,9 +8,9 @@
 <!-- omit in toc -->
 ### Short description
 
-This is a website with *Web3* functionality to mint NFTs. Eligible users who received a giftcard, can mint an NFT using the giftcard code. The fees are paid by the contract owner. The smart contract is stored on the Polygon chain to reduce gas fees.
+This is a website with *Web3* functionality to mint NFTs. Eligible users who received a gift card can mint an NFT using the gift card code. The fees are paid by the contract owner. The smart contract is stored on the Polygon chain to reduce gas fees.
 
-All codes are stored on the github repository of this page.
+All codes are stored on the GitHub repository of this page.
 <!-- omit in toc -->
 # Table of Contents
 
@@ -29,9 +29,9 @@ All codes are stored on the github repository of this page.
 
 This documentation describes the technical implementation of the business extension for the case of *Blackhawk Network*. The basic idea of this implementation is to gift NFTs to eligible gift card holders. Moreover, the website and the smart contract are functioning in such a way that the gift card holder does not pay any minting or transaction fees.
 
-The following chapters will explain various processes such as creating and uploading the NFTs, compiling and verifying the smart contracts and adding web3 functionality to the website.
+The following chapters will explain various processes such as creating and uploading the NFTs, compiling and verifying the smart contracts, and adding web3 functionality to the website.
 
-The following software, frameworks and programming languages are used:
+The following software, frameworks, and programming languages are used:
 
 - Visual Studio Code (IDE)
 - JavaScript (Programming language)
@@ -47,26 +47,26 @@ The following software, frameworks and programming languages are used:
 
 ## Pictures & Metadata
 
-In order to create an entire NFT collection, the best approach is to create layers and then combine them to an entire picture. We created the following layers:
+In order to create an entire NFT collection, the best approach is to create layers and then combine them into an entire picture. We created the following layers:
 
 |Layers|Attributes|
 |---|---|
-|Background|  aquamarine, darkblue, green, orange, purple, red, yellow, violet|
+|Background|  aquamarine, dark blue, green, orange, purple, red, yellow, violet|
 |Base|normal, Frankenstein|
 |Body|black, Dracula, Europa Park, Skeleton|
 |Hand|Bone, Broom, Pumpkin|
 |Head|Spider, Witch Hat
 
-Additionally we created 3 *winner NFTs*, which have special background and a winning ticket as the *hand* attribute.
+Additionally, we created 3 *winner NFTs*, which have a special background and a winning ticket as the *hand* attribute.
 
 | <img src= "public/99.png" width="250px"/> |
 |:--:|
 | *A Winner NFT* |
 
-Picture creating and metadata generation were made via [*HashLips Art Engine*](https://github.com/HashLips/hashlips_art_engine). Hashlips is a JavaScript based program, which combines image layers to generate unique pictures. We configured the NFT-creating as the following:
+Picture creating and metadata generation was made via [*HashLips Art Engine*](https://github.com/HashLips/hashlips_art_engine). Hashlips is a JavaScript-based program, which combines image layers to generate unique pictures. We configured the NFT-creating as the following:
 
 ```javascript
-// Some of the hashlips configurations. For more info, visit github
+// Some of the Hashlips configurations. For more info, visit GitHub
 
 const namePrefix = "Euro Mouse Halloween Special";
 const description = "Limited NFT collection, only gift card holders are eligible";
@@ -90,7 +90,7 @@ const format = {
 };
 ```
 
- After that, the pictures were uploaded to *IPFS* via [*Pinata*](https://pinata.cloud). Pinata is a free service for uploading NFTs to the IPFS. Once the pictures were uploaded, we used the content identifier *CID* of the picture folder and pasted it in the JSON-metadata of each NFT. A content identifier serves as a label to point to files in the IPFS.
+ After that, the pictures were uploaded to *IPFS* via [*Pinata*](https://pinata.cloud). Pinata is a free service for uploading NFTs to the IPFS. Once the pictures were uploaded, we used the content identifier *CID* of the picture folder and pasted it in the JSON metadata of each NFT. A content identifier serves as a label to point to files in the IPFS.
 
 ```json
 "Json metadata example"
@@ -128,7 +128,7 @@ const format = {
 }
 ```
 
-After that the JSON-metadata was uploaded to IPFS as well.  
+After that, the JSON metadata was uploaded to IPFS as well.  
 ___  
 
 | **Datatype**   | **CID**                                          |
@@ -140,7 +140,7 @@ ___
 
 # Smart Contract
 
-The smart contract inherits the ERC721 contract standard from [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC721). The maximum supply is set at 101 - the entirety of the NFT collection. It can be adjusted afterwards if needed.  
+The smart contract inherits the ERC721 contract standard from [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC721). The maximum supply is set at 101 - the entirety of the NFT collection. It can be adjusted afterward if needed.  
 
 ```solidity
 function setMaxSupply(uint256 maxSupply_) external onlyOwner {
@@ -148,7 +148,7 @@ function setMaxSupply(uint256 maxSupply_) external onlyOwner {
     }
 ```
 
-After that, the minting process has to enabled manually by the contract owner. This is useful, since we may want to enable minting only during a certain time.
+After that, the minting process has to be enabled manually by the contract owner. This is useful, since we may want to enable minting only during a certain time.
 
 ```solidity
 function toggleIsMintEnabled() external onlyOwner {
@@ -166,7 +166,7 @@ function mint(address _receiver, uint256 tID) public onlyOwner {
     }
 ```
 
-The baseURI can either be set as a constructor variable when deploying the contract, or it can be set/changed later using the 'setBaseURI' function.
+The `baseURI` can either be set as a constructor variable when deploying the contract, or it can be set/changed later using the `setBaseURI` function.
 
 ```solidity
 constructor(string memory baseURI) ERC721('BCC EuroMouse - Halloween Edition', 'EUMOUSE') {   
@@ -183,35 +183,35 @@ constructor(string memory baseURI) ERC721('BCC EuroMouse - Halloween Edition', '
     }  
 ```
 
-The contract was compiled, deployed and verified using [*hardhat*](https://hardhat.org/) on the Polygon Mumbai Testnet. Infura was used as the an API provider to connect to the Polygon Mumbai Testnet.
+The contract was compiled, deployed, and verified using [*hardhat*](https://hardhat.org/) on the Polygon Mumbai Testnet. Infura was used as an API provider to connect to the Polygon Mumbai Testnet.
 
 **Contract Address:**  0xAFB3e72bEf11C13C572fD8112bAE95c983a5DDe3  
 
 **Verified code:** <https://mumbai.polygonscan.com/address/0xAFB3e72bEf11C13C572fD8112bAE95c983a5DDe3#code>  
 
-The full code can also be found in the [contracts](contracts/EuroMouse.sol) folder.
+The full code can also be found in the [contracts](contracts/) folder.
 
 # Website
 
 ## General
 
-We used *next.js* as the technical frame to build the website. There are 3 pages, *home page*, *team* and *NFTs*. All keys have been stored as *environment variables* and will be accessed from the frontend via 'process.env'. This setup is not suitable for a mainnet solution, since the keys are exposed on the frontend.
+We used *next.js* as the technical frame to build the website. There are 3 pages, *home page*, *team* and *NFTs*. All keys have been stored as *environment variables* and will be accessed from the frontend via 'process.env'. This setup is not suitable for a *mainnet* solution, since the keys are exposed on the frontend.
 
 ## Home Page
 
-The home page provides the main functionality for the user. It consists of a submit form and a text block with instructions. The user can visit the website by scanning the *QR-code* on his giftcard. Afterwards, the user can type in his/her giftcard code and wallet address and click on submit.
+The home page provides the main functionality for the user. It consists of a submit form and a text block with instructions. The user can visit the website by scanning the *QR-code* on his gift card. Afterward, the user can type in his/her gift card code and wallet address and click on submit.
 
 | <img src= "public/submitform.png" width="250px"/> |
 |:--:|
 | *Submit form* |
 
-The submit form accepts only 6-digit-codes and 40-digit addresses. An error message appears if the giftcard code is wrong or already used. If both code and wallet address are valid, a success message will appear.
+The submit form accepts only 6-digit-codes and 40-digit addresses. An error message appears if the gift card code is wrong or already used. If both code and wallet address are valid, a success message will appear.
 
 | <img src= "public/error.png" width="250px"/> |<img src= "public/success.png" width="250px"/>
 |:--:|:--:|
 | *Error message* | *Success message*|
 
-All eligible codes are stored as environment variables. The codes are random 6 digit integers.
+All eligible codes are stored as environment variables. The codes are random 6-digit integers.
 
 ```python
 # generating giftcard codes (python)
@@ -267,7 +267,7 @@ function onSubmit(values) {
 
 ## Team page
 
-The [team page](https://bcc-giftcards.vercel.app/team) contains some further information about the us as a team.
+The [team page](https://bcc-giftcards.vercel.app/team) contains some further information about us as a team.
 
 ## NFTs
 
@@ -275,4 +275,4 @@ The [NFTs page](https://bcc-giftcards.vercel.app/nfts) is an image gallery, whic
 
 # Summary
 
-The creation of a smart contract to mint NFTs is rather simple. There are many examples and well-tested contracts from openzeppelin, which ensure secure contracts. However, all the additional work regarding the artwork, picutre and metadata generation and having a functional website are very time-consuming. Understanding smart contracts and knowing Solidity was not enough. Web development skills were also needed. This technical implementation can also be used for mainnet solutions, given that all secret keys (API, private key) are not exposed to the frontend.
+The creation of a smart contract to mint NFTs is rather simple. There are many examples and well-tested contracts from openzeppelin, which ensure secure contracts. However, all the additional work regarding the artwork, picture and metadata generation, and having a functional website are very time-consuming. Understanding smart contracts and knowing Solidity was not enough. Web development skills were also needed. This technical implementation can also be used for mainnet solutions, given that all secret keys (API, private key) are not exposed to the frontend.
