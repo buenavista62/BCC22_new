@@ -189,7 +189,7 @@ The contract was compiled, deployed, and verified using [*hardhat*](https://hard
 
 **Verified code:** <https://mumbai.polygonscan.com/address/0xAFB3e72bEf11C13C572fD8112bAE95c983a5DDe3#code>  
 
-The full code can also be found in the [contracts](contracts/) folder.
+The full code can also be found in the [contracts](https://github.com/buenavista62/BCC22_new/tree/main/contracts) folder.
 
 # Website
 
