@@ -156,7 +156,7 @@ function toggleIsMintEnabled() external onlyOwner {
     }
 ```
 
-The mint function can be executed only by the owner of the contract. It receives two inputs - the receiver of the token and the token id. Thus, the contract owner pays minting fees. The receiver gets the token via *airdrop*.
+The mint function can be executed only by the owner of the contract. It receives two inputs - the receiver of the token and the token ID. Thus, the contract owner pays minting fees. The receiver gets the token via *airdrop*.
 
 ```solidity
 function mint(address _receiver, uint256 tID) public onlyOwner {
