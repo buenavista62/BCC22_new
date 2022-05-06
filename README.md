@@ -31,7 +31,7 @@ This documentation describes the technical implementation of the business extens
 
 The following chapters will explain various processes such as creating and uploading the NFTs, compiling and verifying the smart contracts, and adding web3 functionality to the website.
 
-The following software, frameworks, and programming languages are used:
+The following software, frameworks and programming languages are used:
 
 - Visual Studio Code (IDE)
 - JavaScript (Programming language)
@@ -90,7 +90,7 @@ const format = {
 };
 ```
 
- After that, the pictures were uploaded to *IPFS* via [*Pinata*](https://pinata.cloud). Pinata is a free service for uploading NFTs to the IPFS. Once the pictures were uploaded, we used the content identifier *CID* of the picture folder and pasted it in the JSON metadata of each NFT. A content identifier serves as a label to point to files in the IPFS.
+ After that, the pictures were uploaded to *IPFS* via [*Pinata*](https://pinata.cloud). Pinata is a free service for uploading NFTs to the IPFS. Once the pictures were uploaded, we used the content identifier *CID* of the picture folder and pasted it into the JSON metadata of each NFT. A content identifier serves as a label to point to files in the IPFS.
 
 ```json
 "Json metadata example"
@@ -211,7 +211,7 @@ constructor(string memory baseURI) ERC721('BCC EuroMouse - Halloween Edition', '
     }  
 ```
 
-The contract was compiled, deployed, and verified using [*hardhat*](https://hardhat.org/) on the Polygon Mumbai Testnet. Infura was used as an API provider to connect to the Polygon Mumbai Testnet.
+The contract was compiled, deployed, and verified using [*hardhat*](https://hardhat.org/) on the Polygon Mumbai testnet. Infura was used as an API provider to connect to the Polygon Mumbai testnet.
 
 **Contract Address:**  0x5F2e8a39C08EE760Fb97247f5e446C0E67296D2e 
 
@@ -223,7 +223,7 @@ The full code can also be found in the [contracts](https://github.com/buenavista
 
 ## General
 
-We used *next.js* as the technical frame to build the website. There are 3 pages, *home page*, *team* and *NFTs*. All keys have been stored as *environment variables* and will be accessed from the frontend via 'process.env'. This setup is not suitable for a *mainnet* solution, since the keys are exposed on the frontend.
+We used *next.js* as the technical frame to build the website. There are 3 pages, *home page*, *team* and *NFTs*. All keys have been stored as *environment variables* and will be accessed from the frontend via `process.env`. This setup is not suitable for a *mainnet* solution, since the keys are exposed on the frontend.
 
 ## Home Page
 
