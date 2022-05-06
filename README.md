@@ -223,7 +223,9 @@ The full code can also be found in the [contracts](https://github.com/buenavista
 
 ## General
 
-We used *next.js* as the technical frame to build the website. There are 3 pages, *home page*, *team* and *NFTs*. All keys have been stored as *environment variables* and will be accessed from the frontend via `process.env`. This setup is not suitable for a *mainnet* solution, since the keys are exposed on the frontend.
+We used *next.js* as the technical frame to build the website. There are 3 pages, *home page*, *team* and *NFTs*. All keys have been stored as *environment variables* and will be accessed from the frontend via `process.env`. This setup is not suitable for a *mainnet* solution, since the keys are exposed on the frontend. The website was deployed via vercel.
+
+URL: [bcc-giftcards.vercel.app](bcc-giftcards.vercel.app)
 
 ## Home Page
 
