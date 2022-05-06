@@ -140,7 +140,35 @@ ___
 
 # Smart Contract
 
-The smart contract inherits the ERC721 contract standard from [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC721). The maximum supply is set at 101 - the entirety of the NFT collection. It can be adjusted afterward if needed.  
+We used the Solidity version `^0.8.9`, since this is the latest officially supported version from hardhat. The used compiler is `0.8.13+commit.abaa5c0e.Emscripten.clang`.
+
+```javascript
+// part of the hardhat config file
+module.exports = {
+  solidity: "0.8.9",
+  networks: {
+    mumbai: {
+      url: process.env.NEXT_PUBLIC_MUMBAI_RPC_URL,
+      accounts: [process.env.NEXT_PUBLIC_PRIVATE_KEY]
+    },
+  },
+  etherscan: {
+    apiKey: process.env.NEXT_PUBLIC_MUMBAI_KEY ,
+  },
+};
+```
+
+The smart contract inherits the ERC721 contract standard from [openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC721). Besides that, the `Ownable` contract from openzeppelin is also inherited. The following variables are used for this contract:
+
+```solidity
+contract EuroMouse is ERC721, Ownable {
+    uint256 public tokenId;
+    uint256 public maxSupply = 101;
+    bool public isMintEnabled; //default is false
+    string private baseTokenURI;
+```
+
+The maximum supply is set at 101 - the entirety of the NFT collection. It can be adjusted afterward if needed.
 
 ```solidity
 function setMaxSupply(uint256 maxSupply_) external onlyOwner {
@@ -185,9 +213,9 @@ constructor(string memory baseURI) ERC721('BCC EuroMouse - Halloween Edition', '
 
 The contract was compiled, deployed, and verified using [*hardhat*](https://hardhat.org/) on the Polygon Mumbai Testnet. Infura was used as an API provider to connect to the Polygon Mumbai Testnet.
 
-**Contract Address:**  0xAFB3e72bEf11C13C572fD8112bAE95c983a5DDe3  
+**Contract Address:**  0x5F2e8a39C08EE760Fb97247f5e446C0E67296D2e 
 
-**Verified code:** <https://mumbai.polygonscan.com/address/0xAFB3e72bEf11C13C572fD8112bAE95c983a5DDe3#code>  
+**Verified code:** <https://mumbai.polygonscan.com/address/0x5F2e8a39C08EE760Fb97247f5e446C0E67296D2e#code>  
 
 The full code can also be found in the [contracts](https://github.com/buenavista62/BCC22_new/tree/main/contracts) folder.
 
@@ -271,7 +299,7 @@ The [team page](https://bcc-giftcards.vercel.app/team) contains some further inf
 
 ## NFTs
 
-The [NFTs page](https://bcc-giftcards.vercel.app/nfts) is an image gallery, which shows 20 NFTs from the collection. 
+The [NFTs page](https://bcc-giftcards.vercel.app/nfts) is an image gallery, which shows 20 NFTs from the collection.
 
 # Summary
 

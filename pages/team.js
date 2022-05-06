@@ -89,7 +89,7 @@ import {
             textAlign={'center'}
             color={useColorModeValue('gray.700', 'gray.400')}
             px={3}>
-            Msc Economics, Major Data Science and Computational Economics{' '}
+            MSc Business and Economics {' '}
           </Text>
   
           

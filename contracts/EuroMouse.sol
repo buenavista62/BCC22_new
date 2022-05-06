@@ -1,14 +1,10 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Strings.sol";
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract EuroMouse is ERC721, Ownable {
-    using SafeMath for uint256;
     uint256 public tokenId;
     uint256 public maxSupply = 101;
     bool public isMintEnabled; //default is false
@@ -16,7 +12,7 @@ contract EuroMouse is ERC721, Ownable {
 
     constructor(string memory baseURI)
         ERC721(
-            "Blockchain Challenge 2022 EuroMouse - Halloween Edition",
+            "Blockchain Challenge 22 - EuroMouse Halloween Edition",
             "EUMOUSE"
         )
     {
