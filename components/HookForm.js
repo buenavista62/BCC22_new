@@ -20,7 +20,7 @@ import { ethers, BigNumber } from "ethers";
 import EuroMouse from "./EuroMouse.json";
 
 //var thecodes = JSON.parse(process.env.NEXT_PUBLIC_CODES);
-const EuroMouseAddress = "0xAFB3e72bEf11C13C572fD8112bAE95c983a5DDe3";
+const EuroMouseAddress = "0x5F2e8a39C08EE760Fb97247f5e446C0E67296D2e";
 var codes = JSON.parse(process.env.NEXT_PUBLIC_CODES);
 var usedcodes = [];
 const provider = new ethers.providers.InfuraProvider("maticmum", process.env.NEXT_PUBLIC_INFURA_KEY);
