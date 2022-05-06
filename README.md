@@ -8,7 +8,7 @@
 <!-- omit in toc -->
 ### Short description
 
-This is a website with *Web3* functionality to mint NFTs. Eligible users who received a gift card can mint an NFT using the gift card code. The fees are paid by the contract owner. The smart contract is stored on the Polygon chain to reduce gas fees.
+This is a website with *Web3* functionality to mint NFTs. Eligible users who received a gift card can mint an NFT using the gift card code. The fees are paid by the contract owner. The smart contract is stored on the Polygon Mumbai testnet chain to reduce gas fees.
 
 All codes are stored on the GitHub repository of this page.
 <!-- omit in toc -->
@@ -27,7 +27,7 @@ All codes are stored on the GitHub repository of this page.
 
 # Introduction
 
-This documentation describes the technical implementation of the business extension for the case of *Blackhawk Network*. The basic idea of this implementation is to gift NFTs to eligible gift card holders. Moreover, the website and the smart contract are functioning in such a way that the gift card holder does not pay any minting or transaction fees.
+This documentation describes the technical implementation of the business extension for the case of [*Blackhawk Network*](https://blackhawknetwork.ch/). The basic idea of this implementation is to gift NFTs to eligible gift card holders. Moreover, the website and the smart contract are functioning in such a way that the gift card holder does not pay any minting or transaction fees.
 
 The following chapters will explain various processes such as creating and uploading the NFTs, compiling and verifying the smart contracts, and adding web3 functionality to the website.
 
