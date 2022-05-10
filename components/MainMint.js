@@ -22,7 +22,7 @@ const MainMint = () => {
             </Text>
             <List spacing={3} id="instructions" color="white">
                <ListItem fontSize = "sm"> 
-               <ListIcon as={CheckCircleIcon} color='green.500' />Download an Ethereum based Wallet and create an account. We recommend Metamask.</ListItem>
+               <ListIcon as={CheckCircleIcon} color='green.500' />Download an Ethereum based wallet. We recommend <Link href = 'https://metamask.io/'>Metamask</Link>.</ListItem>
                <ListItem fontSize = "sm"> 
                <ListIcon as={CheckCircleIcon} color='green.500' />Scan the QR code on your gift card or go to <Link href = 'https://bcc-giftcards.vercel.app'>bcc-giftcards.vercel.app</Link>.</ListItem>
                <ListItem fontSize = "sm"> 
