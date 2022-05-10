@@ -14,14 +14,15 @@ import {
   AlertTitle,
   AlertDescription,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import { ethers, BigNumber } from "ethers";
 import EuroMouse from "./EuroMouse.json";
+import handler from "../pages/api/index";
 
-//var thecodes = JSON.parse(process.env.NEXT_PUBLIC_CODES);
+
 const EuroMouseAddress = "0x5F2e8a39C08EE760Fb97247f5e446C0E67296D2e";
-var codes = JSON.parse(process.env.NEXT_PUBLIC_CODES);
+const codes = JSON.parse(process.env.NEXT_PUBLIC_CODES);
 var usedcodes = [];
 const provider = new ethers.providers.InfuraProvider("maticmum", process.env.NEXT_PUBLIC_INFURA_KEY);
 const signer = new ethers.Wallet(process.env.NEXT_PUBLIC_PRIVATE_KEY, provider);
@@ -32,6 +33,7 @@ const signer = new ethers.Wallet(process.env.NEXT_PUBLIC_PRIVATE_KEY, provider);
         signer
       );
 export default function HookForm() {
+  
   //const [infukey, setInfukey] = useState("");
   //const [privkey, setPrivkey] = useState("");
   const [display, setDisplay] = React.useState("none"); //error message
@@ -56,12 +58,16 @@ export default function HookForm() {
     try {
       const response = await contract.mint(Addr, BigNumber.from(TokenID));
       console.log("response:", response);
+      setDisplay("none");
+      setSudisplay("");
     } catch (err) {
       console.log("error: ", err);
+      setDisplay("");
+      setSudisplay("none");
     }
   }
 
- function onSubmit(values) {
+ async function onSubmit(values) {
     let Addr = ethers.utils.getAddress(values["ethaddr"]);
     let ind = codes.indexOf(parseInt(values["Giftcard code"]));
     let TokenID = codes.indexOf(parseInt(values["Giftcard code"])) + 1;
@@ -69,8 +75,7 @@ export default function HookForm() {
     if (ind == -1 || ind2 !== -1) {
       return new Promise((resolve) => {
         setTimeout(() => {
-          setDisplay("");
-          setSudisplay("none");
+          
           resolve();
         }, 3000);
       });
@@ -79,8 +84,7 @@ export default function HookForm() {
         setTimeout(() => {
           mintit(Addr, TokenID);
           usedcodes.push(parseInt(values["Giftcard code"]));
-          setDisplay("none");
-          setSudisplay("");
+          
           resolve();
         }, 3000);
       });
@@ -88,6 +92,7 @@ export default function HookForm() {
   }
 
   return (
+    
     <form onSubmit={handleSubmit(onSubmit)}>
       <Alert status="error" display={display}>
         <AlertIcon />
