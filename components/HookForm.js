@@ -75,7 +75,8 @@ export default function HookForm() {
     if (ind == -1 || ind2 !== -1) {
       return new Promise((resolve) => {
         setTimeout(() => {
-          
+          setDisplay("");
+          setSudisplay("none");
           resolve();
         }, 3000);
       });
